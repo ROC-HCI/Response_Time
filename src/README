@@ -1,0 +1,39 @@
+This is a a program to take two PRAAT TextGrids and calculate the witness 
+response times (ie. the time it takes the witness to start talking after 
+the interrogator stops).
+
+
+-----------------------------------------------------------------
+COMPILE:
+in order to compile, from this directory type:
+
+  javac deception/*.java
+
+
+this will create all the .class files in the deception directory
+
+
+-----------------------------------------------------------------
+RUN:
+in order to run type:
+
+  java deception/deception.main <interrogator file> <witness file> <outfile>
+
+
+for example
+
+  java deception.main example/interrogator.TextGrid example/witness.TextGrid example/response_times.txt
+
+
+-----------------------------------------------------------------
+ALGORITHM:
+
+TODO
+
+
+
+-----------------------------------------------------------------
+PRAAT TextGrid generation
+
+We recommend you use the default options to generate TextGrids from your
+sound files.
