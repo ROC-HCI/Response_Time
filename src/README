@@ -36,7 +36,13 @@ java deception.GUI example/interrogator.TextGrid example/witness.TextGrid exampl
 -----------------------------------------------------------------
 ALGORITHM:
 
-TODO
+The code works by first breaking up each TextGrid into an array of intervals (java objects). Each interval consists of a start and end time (in seconds), a variable marked “sounding” or “silent”, and a variable indicating if the interval is from the describer or interrogator. 
+
+The “sounding” intervals for the describer and interrogator are then combined into an ArrayList called convo (conversation). The interval variables “prev” and “next” (which are pointers to the next and previous intervals in the conversation) are set, making the conversation a linked list. 
+
+This conversation is then parsed into sentence objects (a sentence being an uninterrupted sequence of intervals that share the same speaker) and stored in the ArrayList “sents”. Each sentence object contains its start/end time, and a pointer to the “next”/“prev” sentence in the conversation. 
+
+This makes calculating the response time for a given sentence trivial, as all the code has to do is calculate the difference between the start time of the sentence, and the end time of the previous sentence. 
 
 
 
