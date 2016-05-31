@@ -34,8 +34,7 @@ public class plot extends JPanel{
 		descClip.open(descAudio);
 		intClip.open(intAudio);
 		repaint();
-		descClip.start();
-		intClip.start();
+		
 		
 		//Create and start timer
 		timer = new Timer(200, new ActionListener(){
@@ -71,6 +70,10 @@ public class plot extends JPanel{
 		
 		repTime = new JLabel("Response Time: " + 0 + " s");
 		add(repTime);
+	
+		//Start sound clips
+		descClip.start();
+		intClip.start();
 			
 	}
 	

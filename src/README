@@ -19,10 +19,18 @@ in order to run type:
 
   java deception/deception.main <interrogator file> <witness file> <outfile>
 
+to run GUI:
+
+java deception.GUI <interrogator file> <witness file> <interrogator audio file> <witness audio file> 
+
 
 for example
 
   java deception.main example/interrogator.TextGrid example/witness.TextGrid example/response_times.txt
+
+for GUI example 
+
+java deception.GUI example/interrogator.TextGrid example/witness.TextGrid example/interrogator.wav example/witness.wav
 
 
 -----------------------------------------------------------------
