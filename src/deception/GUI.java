@@ -10,15 +10,26 @@ public class GUI {
 	static ArrayList<interval> convo; 
 	static ArrayList<sentence> sents;
 
-	public static void main(String[] args) throws IOException, UnsupportedAudioFileException, LineUnavailableException {
+	public static void main(String[] args) 
+      throws IOException, UnsupportedAudioFileException, 
+             LineUnavailableException {
 		
-		intInts = toIntervalArray(args[0], false); //Create interrogator interval array
-		descInts = toIntervalArray(args[1], true); //Create describer intervals array
-		convo = createConversation(descInts, intInts); //Merge interrogator and describer intervals into conversation 
-		sents = createSentList(convo); //Parse convo intervals into sentences 
+		intInts = toIntervalArray(args[0], false); 
+    //Create interrogator interval array
+
+		descInts = toIntervalArray(args[1], true); 
+    //Create describer intervals array
+
+		convo = createConversation(descInts, intInts); 
+    //Merge interrogator and describer intervals into conversation 
 		
-		AudioInputStream intAudio = AudioSystem.getAudioInputStream(new File(args[2]));
-		AudioInputStream descAudio = AudioSystem.getAudioInputStream(new File(args[3]));
+    sents = createSentList(convo); 
+    //Parse convo intervals into sentences 
+		
+		AudioInputStream intAudio = 
+        AudioSystem.getAudioInputStream(new File(args[2]));
+		AudioInputStream descAudio = 
+        AudioSystem.getAudioInputStream(new File(args[3]));
 	
 		
 		
@@ -28,11 +39,9 @@ public class GUI {
 		Frame.add(Plot);
 		Frame.setSize(500,200);
 		Frame.setVisible(true);
-		
-
 	}
 	
-//Analysis Methods 
+  //Analysis Methods 
 	public static double getAvgRepTime(ArrayList<sentence> sents){
 		double total = 0.0; double num = 0.0; 
 		for(int i = 0; i < sents.size(); i++){
@@ -55,9 +64,10 @@ public class GUI {
 		}
 		return total/num; 
 	}
-//Helper Methods
+  
+  //Helper Methods
+
 	//Generate output file 
-	
 	public static void generateOutput(String filename, double start, double end){
 		 BufferedWriter writer = null;
 	        try {
@@ -87,6 +97,7 @@ public class GUI {
 	            }
 	        }
 	}
+
 	//Generate Array of intervals from praat file
 	public static interval[] toIntervalArray(String fileLocation, boolean isDescriber) throws IOException{
 		FileReader reader = new FileReader(fileLocation);
@@ -127,6 +138,7 @@ public class GUI {
 		}
 		return intArray;
 	}
+
 	//Get interval for current time
 	public static interval getCurrentInt(interval[] int1, double time){
 		for(interval i : int1){
@@ -163,6 +175,8 @@ public class GUI {
 		return convo; 
 				
 	}
+
+
 //Sentence Methods
 
 	//Retrieves sentence containing inputed interval 
