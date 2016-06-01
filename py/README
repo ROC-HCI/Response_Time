@@ -1,0 +1,9 @@
+  ./get_all_responses <directory>
+
+
+for example:
+
+  ./get_all_responses example
+
+
+make sure you have python installed
