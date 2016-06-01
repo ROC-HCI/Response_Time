@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+import sys
+import os
+import glob
+
 
 """
 -------------------------------------------------------------------------------
@@ -14,8 +18,8 @@
   Interrogator and Witness pairs are determined by the initial substring.
 
   example file pair:
-    2016-03-02_14-03-04-887-I-RUTHEH.webm
-    2016-03-02_14-03-04-887-W-Simplyme.webm
+    2016-03-02_14-03-04-887-I-RUTHEH.TextGrid
+    2016-03-02_14-03-04-887-W-Simplyme.TextGrid
   
   The "2016-03-02_14-03-04-887-" substring indicates the pair.
   The "-W-" and "-I-" indicate whether file is for interrogator or witness.
@@ -33,16 +37,34 @@
 # TODO
 # TODO
 
-print("hello")
+
+
+
+
 
 
 # check if the directory is specified, if not error msg
 
+if(len(sys.argv) < 2):
+    raise ValueError("No target diretcory inputted")
 # is arg[1] actually a directory?
+if(not os.path.isdir(sys.argv[1])):
+    raise ValueError("Directory does not exist")
 
 # get *.TextGrid files from directory 
 
+grids = glob.glob(sys.argv[1] + '/*.TextGrid')
+
+for g in grids:
+    gSplit = g.split("-")
+    assert(len(gSplit) >= 8)
+    print(g)
+   
+
+
 # determine file pairs
+
+
 
 # for each pair call deception.main java program
 
