@@ -1,0 +1,50 @@
+================================================
+SUMMARY:
+
+This directory is for the PRAAT script for automatically taking a directory
+of wav files, and generating a corresponding .TextGrid file annotated with
+silences.  Hopefully, we will add functionality for extracting other features
+with PRAAT.
+
+GridMaker.praat  - this is the script file
+
+Running the script in praat with default params will cause a root.TextGrid file
+to be created for every *.wav file.
+
+================================================
+DETAILED DIRECTIONS:
+
+1. launch praat
+
+    $ praat&
+
+2. in the Praat Objects window, select menu item for opening a praat script
+
+    Praat Objects 
+         --> Praat --> Open Praat Script
+
+3. select gridmaker.praat (after navigating to the right directory 
+   with selection GUI.
+
+4. In the Script window, select Run
+
+    Script 
+       --> Run --> Run
+
+5. adjust Directory if necessary
+     The directory is the location where all of the .wav files should be.
+
+6. adjust Filename initial substring
+     Only file which start with the substring will be processed
+
+     **I'm not sure what tiers does
+
+7. click ok
+     While praat is processing, it will seem like praat has frozen. For 
+     processing 42 files, it should take about thirty seconds on a decent 
+     2016 desktop.
+
+
+
+
+
