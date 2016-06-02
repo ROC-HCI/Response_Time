@@ -22,6 +22,7 @@ class pair:
 def isMatch(fileA, fileB):
     fileA = fileA.split("-")
     fileB = fileB.split("-")
+    
     assert(len(fileA) >= 8) 
     assert(len(fileB) >= 8) 
     
@@ -53,7 +54,9 @@ def getWitness(fileA, fileB):
 
 def getOutputName(file):
     name = sys.argv[1] + '/'
-    file = file.split("/")[1]
+    
+    file = file.split("/")
+    file = file[len(file) - 1]
     file = file.split("-")
     for i in range(6):
         name += file[i] + "-"
