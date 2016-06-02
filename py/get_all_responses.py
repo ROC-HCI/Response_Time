@@ -52,13 +52,13 @@ def getWitness(fileA, fileB):
         raise ValueError("Neither file is witness")    
 
 def getOutputName(file):
-    name = ""
+    name = sys.argv[1] + '/'
     file = file.split("/")[1]
     file = file.split("-")
     for i in range(6):
         name += file[i] + "-"
     
-    name += "ResponseTime"
+    name += "ResponseTime.txt"
     return name
     
 
