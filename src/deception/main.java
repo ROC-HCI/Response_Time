@@ -97,7 +97,7 @@ public class main {
 	            for(int i = 0; i < sents.size(); i++){
 	            	sentence s = sents.get(i);
 	            	if(s.isDescriber && s.prev != null && s.start >= start && s.start <= end){
-	    				writer.write(sents.get(i).getRepTimePrev() + "\n");
+	    				writer.write(s.getRepTimePrev() + " " + s.prev.end + " " + s.start +  "\n");
 	    				
 	    			}
 	    		}
