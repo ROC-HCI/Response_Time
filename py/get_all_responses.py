@@ -17,20 +17,30 @@ class pair:
         
     def __str__(self):
         return "Interrogator: " + interrogator + "\nWitness: " + witness
+    
 
 #Returns true if files match, returns false if they do not
 def isMatch(fileA, fileB):
     fileA = fileA.split("-")
     fileB = fileB.split("-")
     
-    assert(len(fileA) >= 8) 
-    assert(len(fileB) >= 8) 
+    assert(len(fileA) >= 9) 
+    assert(len(fileB) >= 9) 
     
     for i in range(6):
         if(fileA[i] != fileB[i]):
             return False
     
     return True
+
+def contains(pairs, fileA):
+    for p in pairs:
+        if(isMatch(p.interrogator, fileA)):
+            return True
+        if(isMatch(p.witness, fileA)):
+                    return True  
+    return False
+        
 
 def getInterrogator(fileA, fileB):
     fileASplit = fileA.split("-")
@@ -61,7 +71,7 @@ def getOutputName(file):
     for i in range(6):
         name += file[i] + "-"
     
-    name += "ResponseTime.txt"
+    name += file[7] + "-" + "ResponseTime.txt"
     return name
     
 
@@ -124,20 +134,19 @@ pairs = []
 grids.sort()
 
 for fileA in grids:
-    for fileB in grids:
-        if(isMatch(fileA, fileB) and (fileA != fileB)): #find match
-            interrogator = getInterrogator(fileA, fileB) #identify interrogator 
-            witness = getWitness(fileA, fileB) #identify witness 
-            pairs.append(pair(interrogator, witness)) #add pair to list
-            #Remove files from grids
-            grids.remove(fileA)
-            grids.remove(fileB)
-   
+    if(not contains(pairs, fileA)):
+        for fileB in grids:
+            if(isMatch(fileA, fileB) and (fileA != fileB)): #find match
+                interrogator = getInterrogator(fileA, fileB) #identify interrogator 
+                witness = getWitness(fileA, fileB) #identify witness 
+                pairs.append(pair(interrogator, witness)) #add pair to list
+            
+
        
 
 # for each pair call deception.main java program
 
-
 for p in pairs:
+    
     os.system("javac ../src/deception/*.java")
     os.system("java -cp ../src deception.main " + p.interrogator + " " + p.witness + " " + getOutputName(p.witness))  
