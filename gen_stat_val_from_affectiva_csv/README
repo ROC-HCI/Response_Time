@@ -1,0 +1,10 @@
+gen_stat_value_from_affectiva_output.py program will use-- 		   1.ResponseTimeIntervals-data.csv (contains Q1,Q2 time)
+	   2. example/*.csv (these csv files are generated form affectiva)
+
+Then it will out put:
+	1. output/out_abs.csv (which contains averages absolute differences for every affecitva generated csv files )
+	2. output/out_avg.csv (which contains averages of both Q1 and Q2 intervals for every affecitva generated csv files)
+
+
+Run command:
+./gen_stat_value_from_affectiva_output.py
