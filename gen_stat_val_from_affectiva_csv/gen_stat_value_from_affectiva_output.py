@@ -1,3 +1,11 @@
+#!/usr/bin/env python3
+
+"""
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+"""
+
 import csv
 import glob
 import os
@@ -146,13 +154,19 @@ def generateHashMapforQ1Q2WithKeyRootFileName(fileName):
     return q1_map,q2_map
  
  
-        
-q1_map,q2_map = generateHashMapforQ1Q2WithKeyRootFileName('ResponseTimeIntervals-data.csv')    
+#------------------------------------------------------------------------------        
+# MAIN
+#------------------------------------------------------------------------------        
+print('Starting gen_stat_value_from_affectiva_output.py')
+
+q1_map,q2_map = generateHashMapforQ1Q2WithKeyRootFileName(
+                  'ResponseTimeIntervals-data.csv')    
 csv_file_name_list = glob.glob("example/*.csv")
 #print(q1_map)
 #print(q2_map)
 writeColumnNamesToOutputFile(csv_file_name_list[0])
 for csv_file_name in csv_file_name_list:
+    print(csv_file_name)
     rootName=csv_file_name[csv_file_name.find('/')+1:csv_file_name.rfind('-')]
     if rootName in q1_map:
         findAverage(csv_file_name,q1_map[rootName],q2_map[rootName])
