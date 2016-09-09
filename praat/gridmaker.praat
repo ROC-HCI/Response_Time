@@ -41,7 +41,7 @@ for k from 1 to file_count
     # <Minimum pitch> <Time step> <Silence thresh> <Min silent int duration> 
     #   <min sounding int duration> <silent int label> <sound int label>
   	##To TextGrid (silences)... 100 0.1 -25 0.1 0.1 silent sounding  "'tier$'"
-  	To TextGrid (silences)... 100 0.1 -25 0.1 0.1 silent sounding
+  	To TextGrid (silences)... 100 0.0 -25 0.1 0.1 silent sounding
      endif
 
 ## End Jen Hay inspired block
