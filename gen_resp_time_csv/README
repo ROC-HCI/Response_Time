@@ -1,3 +1,7 @@
+NOTE: it seems the file order is different on when run on different machines
+      will fix this later.
+
+
 RUN USING THIS COMMAND:
 
 	$ python3 ./gen_resp_time_csv.py
