@@ -105,6 +105,9 @@ def findAbsoluteChanges(fileName,q1,q2):
                         sum_array_q2[i]+=abs(float(row[i])-float(prev_val_array[i]))
                         count_array_q2[i]+=float(1)
                         prev_val_array[i]=row[i]
+            else:
+                prev_val_array[i]=0
+      
                                      
     for i in range(num_col):
         if (count_array_q1[i]==0):
