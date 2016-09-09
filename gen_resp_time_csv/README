@@ -1,0 +1,12 @@
+RUN USING THIS COMMAND:
+
+	$ python3 ./gen_resp_time_csv.py
+
+THIS WILL READ: 
+	example/ResponseTimeIntervals-data.csv
+	example/*ResponseTime.txt
+
+AND GENERATE:
+	example/ResponseTimeIntervalsAverage.csv
+
+
