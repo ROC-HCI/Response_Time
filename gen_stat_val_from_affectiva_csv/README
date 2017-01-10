@@ -1,4 +1,5 @@
-gen_stat_value_from_affectiva_output.py program will use-- 		   1.ResponseTimeIntervals-data.csv (contains Q1,Q2 time)
+gen_stat_value_from_affectiva_output.py program will use:
+ 	   1. ResponseTimeIntervals-data.csv (contains Q1,Q2 time)
 	   2. example/*.csv (these csv files are generated form affectiva)
 
 Then it will out put:
