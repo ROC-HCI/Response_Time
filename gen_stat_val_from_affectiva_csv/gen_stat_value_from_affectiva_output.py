@@ -170,12 +170,15 @@ csv_file_name_list = glob.glob("example/*.csv")
 writeColumnNamesToOutputFile(csv_file_name_list[0])
 for csv_file_name in csv_file_name_list:
     print(csv_file_name)
-    rootName=csv_file_name[csv_file_name.find('/')+1:csv_file_name.rfind('-')]
+    #rootName=csv_file_name[csv_file_name.find('/')+1:csv_file_name.rfind('-')]
+    fname = csv_file_name[csv_file_name.find('/')+1:]
+    fname_split = fname.split('-')
+    rootName = '-'.join(fname_split[0:6])
     if rootName in q1_map:
         findAverage(csv_file_name,q1_map[rootName],q2_map[rootName])
         findAbsoluteChanges(csv_file_name,q1_map[rootName],q2_map[rootName])
     else:
-        print(rootName)
+        print('WARNING: ' + rootName + ' not found in Q1/Q2 map')
 if isNumber('0.0018'):
     print('number')
 else:
